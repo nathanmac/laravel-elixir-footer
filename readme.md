@@ -20,7 +20,7 @@ var elixir = require('laravel-elixir');
 require('laravel-elixir-footer');
 
 elixir(function(mix) {
-   mix.footer('\n/** ABC Solutions - 2014 */\n');
+   mix.footer('\n/** ABC Solutions - 2015 */\n');
 });
 ```
 

@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-footer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Laravel Elixir wrapper around footer Gulp task.",
   "main": "index.js",
   "scripts": {
@@ -21,8 +21,6 @@
     "url": "https://github.com/nathanmac/laravel-elixir-header"
   },
   "dependencies": {
-    "gulp-footer": "^1.0.0",
-    "gulp-notify": "^2.0.0",
-    "underscore": "^1.7.0"
+    "gulp-footer": "^1.0.0"
   }
 }
