@@ -1,8 +1,7 @@
-var elixir = require('laravel-elixir');
-var gulp = require('gulp');
+var gulp   = require('gulp');
 var footer = require('gulp-footer');
-var notify = require('gulp-notify');
-var _ = require('underscore');
+var elixir = require('laravel-elixir');
+var config = elixir.config;
 
 /*
  |----------------------------------------------------------------
@@ -16,24 +15,17 @@ var _ = require('underscore');
 
 elixir.extend('footer', function(banner, data) {
 
-    var config = this;
+    new elixir.Task('footer', function () {
 
-    var files = [
-        config.jsOutput + "/*.js",
-        config.cssOutput + "/*.css"
-    ];
+        var files = [
+            config.get('public.js.outputFolder') + "/*.js",
+            config.get('public.css.outputFolder') + "/*.css"
+        ];
 
-    gulp.task('footer', function() {
         return gulp.src(files, {base: './'})
             .pipe(footer(banner, data))
             .pipe(gulp.dest('./'))
-            .pipe(notify({
-                title: 'File Footers Added!',
-                message: 'All resource files have been footed with footer messages/banner.',
-                icon: __dirname + '/../laravel-elixir/icons/pass.png'
-            }));
+            .pipe(new elixir.Notification('Footer Banner Added!'));
     });
-
-    return this.queueTask('footer');
 
 });
